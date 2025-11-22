@@ -1,3 +1,4 @@
+import "@/app/global.css";
 import CartButton from "@/components/CartButton";
 import { images, offers } from "@/constants";
 import cn from "clsx";
@@ -11,7 +12,6 @@ import {
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import "./global.css";
 export default function App() {
   return (
     <SafeAreaView className="flex-1 bg-white">
