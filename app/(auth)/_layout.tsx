@@ -1,5 +1,6 @@
 import { images } from "@/constants";
-import { Slot } from "expo-router";
+import useAuthStore from "@/store/auth.store";
+import { Redirect, Slot } from "expo-router";
 import React from "react";
 import {
   Dimensions,
@@ -12,6 +13,15 @@ import {
 } from "react-native";
 
 const _Layout = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { isAuthenticated } = useAuthStore();
+  console.log("isAuthenticated in auth layout:", isAuthenticated);
+
+  if (isAuthenticated) {
+    console.log("User is authenticated, redirecting to home.");
+    return <Redirect href="/" />;
+  }
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}

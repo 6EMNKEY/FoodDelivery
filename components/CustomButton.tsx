@@ -3,6 +3,7 @@ import React from "react";
 import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native";
 
 const CustomButton = ({
+  onPress,
   title = "Click Me",
   style,
   textStyle,
@@ -10,7 +11,7 @@ const CustomButton = ({
   isLoading = false,
 }: CustomButtonProps) => {
   return (
-    <TouchableOpacity className={cn("custom-btn", style)} onPress={() => {}}>
+    <TouchableOpacity className={cn("custom-btn", style)} onPress={onPress}>
       {leftIcon}
       <View className="flex-center flex-row">
         {isLoading ? (
