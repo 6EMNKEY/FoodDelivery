@@ -37,3 +37,24 @@ declare interface TabBarIconProps {
   icon?: ImageSourcePropType;
   title?: string;
 }
+
+interface GetMenuParams {
+  category: string;
+  query: string;
+}
+
+export interface MenuItem extends Models.Document {
+  name: string;
+  price: number;
+  image_url: string;
+  description: string;
+  calories: number;
+  protein: number;
+  rating: number;
+  type: string;
+}
+
+export interface Category extends Models.Document {
+  name: string;
+  description: string;
+}

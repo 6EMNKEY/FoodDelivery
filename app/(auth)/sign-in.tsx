@@ -36,7 +36,7 @@ export default function SignIn() {
       <CustomInput
         placeholder="Enter your email"
         value={Form.email}
-        onChangeText={(text) => {
+        onChangeText={(text: string) => {
           setForm({ ...Form, email: text });
         }}
         label="Email"
@@ -46,7 +46,7 @@ export default function SignIn() {
       <CustomInput
         placeholder="Password"
         value={Form.password}
-        onChangeText={(text) => {
+        onChangeText={(text: string) => {
           setForm({ ...Form, password: text });
         }}
         label="Password"
