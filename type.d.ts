@@ -8,12 +8,19 @@ declare interface CustomInputProps {
 }
 
 declare interface CustomButtonProps {
-  onPress: () => void;
+  onPress?: () => void;
   title: string;
-  style: object;
-  textStyle: object;
-  leftIcon: React.ReactNode;
-  isLoading: boolean;
+  style?: object;
+  textStyle?: object;
+  leftIcon?: React.ReactNode;
+  isLoading?: boolean;
+}
+
+interface PaymentInfoStripeProps {
+  label: string;
+  value: string;
+  labelStyle?: string;
+  valueStyle?: string;
 }
 
 declare interface CreateUserParams {
@@ -57,4 +64,31 @@ export interface MenuItem extends Models.Document {
 export interface Category extends Models.Document {
   name: string;
   description: string;
+}
+
+export interface CartCustomization {
+  id: string;
+  name: string;
+  price: number;
+  type: string;
+}
+
+export interface CartItemType {
+  id: string; // menu item id
+  name: string;
+  price: number;
+  image_url: string;
+  quantity: number;
+  customizations?: CartCustomization[];
+}
+
+export interface CartStore {
+  items: CartItemType[];
+  addItem: (item: Omit<CartItemType, "quantity">) => void;
+  removeItem: (id: string, customizations: CartCustomization[]) => void;
+  increaseQty: (id: string, customizations: CartCustomization[]) => void;
+  decreaseQty: (id: string, customizations: CartCustomization[]) => void;
+  clearCart: () => void;
+  getTotalItems: () => number;
+  getTotalPrice: () => number;
 }
